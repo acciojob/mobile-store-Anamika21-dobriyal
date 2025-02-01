@@ -1,25 +1,17 @@
-
 import React from "react";
-import "./../styles/App.css";
-import { BrowserRouter, Route, Routes } from "react-router-dom";
-import Home from "./home";
-import Header from "./header";
-import Admin from "./admin";
-import Product from "./product";
-import AdminProdcut from "./adminProduct";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import ProductList from "./ProductList";
+import ProductDetail from "./ProductDetail";
+import AdminPanel from "./AdminPanel";
 
-const App = () => {
-  return (
-    <BrowserRouter>
-      <Header />
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/admin" element={<Admin />} />
-        <Route path="/products/:id" element={<Product />} />
-        <Route path="/admin/products/:id" element={<AdminProdcut />} />
-      </Routes>
-    </BrowserRouter>
-  );
-};
+const App = () => (
+  <Router>
+    <Routes>
+      <Route path="/" element={<ProductList />} />
+      <Route path="/products/:id" element={<ProductDetail />} />
+      <Route path="/admin" element={<AdminPanel />} />
+    </Routes>
+  </Router>
+);
 
 export default App;
